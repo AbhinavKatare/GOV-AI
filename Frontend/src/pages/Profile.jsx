@@ -34,7 +34,7 @@ const Profile = () => {
                         email: u.email || '',
                         mobile: u.mobile || '',
                         department: u.department || '',
-                        location: u.preferences?.location || 'New Delhi, India',
+                        location: u.preferences?.location || 'India',
                     });
                 }
             } catch {
