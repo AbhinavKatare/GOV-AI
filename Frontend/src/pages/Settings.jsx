@@ -85,7 +85,7 @@ const Settings = () => {
                             Edit <ChevronRight className="w-4 h-4 ml-1" />
                         </Button>
                     </SettingRow>
-                    <SettingRow icon={Globe} title="Email Address" description={user?.email || 'alex@govai.com'}>
+                    <SettingRow icon={Globe} title="Email Address" description={user?.email || '*******'}>
                         <Badge className="bg-green-100 text-green-700 border-none text-xs">
                             <CheckCircle className="w-3 h-3 mr-1" /> Verified
                         </Badge>
