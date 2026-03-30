@@ -1,0 +1,162 @@
+# GovAI Backend Server
+
+Node.js + Express + PostgreSQL backend for the GovAI platform.
+
+## 🚀 Features
+
+- **Authentication**: JWT-based auth with register/login/OAuth support
+- **User Management**: Profile management and preferences
+- **Schemes**: Government scheme discovery with AI recommendations
+- **Applications**: Apply and track application status
+- **Notifications**: Real-time notifications for users
+- **PostgreSQL Database**: Robust data persistence
+
+## 📋 Prerequisites
+
+- Node.js (v16 or higher)
+- PostgreSQL (v12 or higher)
+- npm or yarn
+
+## 🛠️ Installation
+
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Set Up PostgreSQL Database
+
+Create a new PostgreSQL database:
+
+```sql
+CREATE DATABASE govai;
+```
+
+### 3. Configure Environment Variables
+
+Copy the `.env.example` to `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Update the `.env` file with your database credentials:
+
+```env
+PORT=5000
+DATABASE_URL=postgresql://postgres:your_password@localhost:5432/govai
+JWT_SECRET=your_secure_jwt_secret_key
+NODE_ENV=development
+FRONTEND_URL=http://localhost:5173
+```
+
+### 4. Initialize Database
+
+Run the database initialization script to create tables and seed data:
+
+```bash
+npm run init-db
+```
+
+## 🏃 Running the Server
+
+### Development Mode (with auto-reload)
+
+```bash
+npm run dev
+```
+
+### Production Mode
+
+```bash
+npm start
+```
+
+The server will start on `http://localhost:5000`
+
+## 📚 API Endpoints
+
+### Authentication
+
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - Login user
+- `POST /api/auth/oauth/:provider` - OAuth login (DigiLocker, Aadhaar, Google)
+
+### Users
+
+- `GET /api/users/profile` - Get current user profile (protected)
+- `PUT /api/users/profile` - Update user profile (protected)
+- `GET /api/users/notifications` - Get user notifications (protected)
+- `PUT /api/users/notifications/:id/read` - Mark notification as read (protected)
+
+### Schemes
+
+- `GET /api/schemes` - Get all active schemes
+- `GET /api/schemes/:id` - Get scheme by ID
+- `GET /api/schemes/recommendations/me` - Get AI-powered scheme recommendations (protected)
+
+### Applications
+
+- `GET /api/applications` - Get all user applications (protected)
+- `GET /api/applications/:id` - Get application by ID (protected)
+- `POST /api/applications` - Submit new application (protected)
+- `PUT /api/applications/:id/status` - Update application status (protected)
+
+### Health Check
+
+- `GET /api/health` - Server health check
+
+## 🗄️ Database Schema
+
+### Tables
+
+- **users** - User account information
+- **user_profiles** - Extended user profile data (skills, experience, etc.)
+- **schemes** - Government schemes and programs
+- **applications** - User applications to schemes
+- **jobs** - Job listings
+- **job_applications** - User job applications
+- **notifications** - User notifications
+
+## 🔐 Authentication
+
+The API uses JWT (JSON Web Tokens) for authentication. Include the token in the Authorization header:
+
+```
+Authorization: Bearer <your_jwt_token>
+```
+
+## 🧪 Testing
+
+Test the API using tools like:
+- Postman
+- Thunder Client (VS Code extension)
+- cURL
+
+Example cURL request:
+
+```bash
+curl -X POST http://localhost:5000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"user@example.com","password":"password123"}'
+```
+
+## 📝 Notes
+
+- Default seeded schemes and jobs are available after running `npm run init-db`
+- OAuth endpoints are mock implementations for demo purposes
+- In production, update JWT_SECRET and enable SSL for PostgreSQL
+
+## 🚧 Future Enhancements
+
+- AI/ML integration for better scheme matching
+- Real OAuth provider integration
+- File upload for resume/documents
+- Admin dashboard APIs
+- Real-time WebSocket notifications
+- Rate limiting and security hardening
+
+## 📄 License
+
+ISC

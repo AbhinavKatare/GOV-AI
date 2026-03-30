@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  font-family: 'Outfit', sans-serif;
+  --color-primary: #2563eb;
+  /* blue-600 */
+  --color-primary-dark: #1d4ed8;
+  /* blue-700 */
+  --color-secondary: #0ea5e9;
+  /* sky-500 */
+  --color-background: #f8fafc;
+  /* slate-50 */
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
+  /* slate-900 */
+  --color-text-muted: #64748b;
+  /* slate-500 */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@layer components {
+
+  /* Loading State */
+  .loader-panel {
+    @apply fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm text-center;
+  }
+
+  .loader-panel__spinner {
+    @apply w-12 h-12 border-4 border-blue-600/30 border-t-blue-600 rounded-full animate-spin mb-6;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold text-blue-600 uppercase tracking-widest mb-2;
+  }
+
+  /* Login Page Components */
+  .page-title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-3 tracking-tight;
+  }
+
+  .page-subtitle {
+    @apply text-gray-500 text-lg mb-10 max-w-md mx-auto leading-relaxed;
+  }
+
+  .login-form {
+    @apply w-full max-w-md mx-auto bg-white p-8 md:p-10 rounded-3xl shadow-2xl shadow-blue-900/5 border border-white/50 backdrop-blur-xl;
+  }
+
+  .input-field {
+    @apply mb-6 flex flex-col gap-2 text-left;
+  }
+
+  .input-field label {
+    @apply text-sm font-semibold text-gray-700 ml-1;
+  }
+
+  .input-field input,
+  .input-field select {
+    @apply w-full px-5 py-3.5 rounded-xl border border-gray-200 bg-gray-50/50 hover:bg-white focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300 text-gray-900 placeholder:text-gray-400 font-medium;
+  }
+
+  .primary-button {
+    @apply w-full py-4 px-6 bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-[15px] tracking-wide cursor-pointer;
+  }
+
+  .primary-button:disabled {
+    @apply opacity-70 cursor-not-allowed transform-none shadow-none;
+  }
+
+  .form-footer {
+    @apply mt-8 text-center space-y-5;
+  }
+
+  .helper-text {
+    @apply text-xs text-gray-400 font-medium;
+  }
+
+  .badge-stack {
+    @apply flex items-center justify-center gap-3 flex-wrap;
+  }
+
+  .badge {
+    @apply px-2.5 py-1 bg-gray-50 text-gray-500 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-gray-200/60;
+  }
+}
