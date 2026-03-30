@@ -18,7 +18,7 @@ const Navbar = () => {
                             <span className="font-bold text-xl text-gray-900">govAI</span>
                         </Link>
                         <div className="hidden md:flex ml-10 space-x-8">
-                            <Link to="/schemes" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Schemas</Link>
+                            <Link to="/schemes" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Schemes</Link>
                             <Link to="/jobs" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Jobs</Link>
                             <Link to="/news" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">News</Link>
                             <Link to="/about" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">About</Link>
